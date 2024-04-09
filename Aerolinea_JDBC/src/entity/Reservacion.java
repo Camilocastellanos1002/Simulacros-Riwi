@@ -6,7 +6,7 @@ public class Reservacion {
 
     private int id;
 
-    private Date fecha_reservacion;
+    private String fecha_reservacion;
 
     private String asiento;
 
@@ -19,7 +19,7 @@ public class Reservacion {
     public Reservacion() {
     }
 
-    public Reservacion(Date fecha_reservacion, String asiento, int id_pasajero, Pasajero objPasajero, int id_vuelo, Vuelo objvuelo) {
+    public Reservacion(String fecha_reservacion, String asiento, int id_pasajero, Pasajero objPasajero, int id_vuelo, Vuelo objvuelo) {
         this.fecha_reservacion = fecha_reservacion;
         this.asiento = asiento;
         this.id_pasajero = id_pasajero;
@@ -36,11 +36,11 @@ public class Reservacion {
         this.id = id;
     }
 
-    public Date getFecha_reservacion() {
+    public String getFecha_reservacion() {
         return fecha_reservacion;
     }
 
-    public void setFecha_reservacion(Date fecha_reservacion) {
+    public void setFecha_reservacion(String fecha_reservacion) {
         this.fecha_reservacion = fecha_reservacion;
     }
 
@@ -87,13 +87,9 @@ public class Reservacion {
     @Override
     public String toString() {
         return "Reservacion: \n" +
-                "id=" + id +
-                ", fecha_reservacion=" + fecha_reservacion +
-                ", asiento='" + asiento + '\'' +
-                ", id_pasajero=" + id_pasajero +
-                ", objPasajero=" + objPasajero +
-                ", id_vuelo=" + id_vuelo +
-                ", objvuelo=" + objvuelo +
+                "pasajero: \n" + objPasajero.getNombre()+ " " +objPasajero.getApellidos()+"\n"+
+                "fecha_reservacion: " + fecha_reservacion +"\n"+
+                "vuelo: "+ objvuelo.getDestino()+ ", asiento: " + asiento +" "+
                 '\n';
     }
 }

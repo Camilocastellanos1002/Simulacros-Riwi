@@ -8,8 +8,7 @@ public class Pasajero {
 
     public Pasajero() {
     }
-    public Pasajero(int id, String nombre, String apellidos, String documentoID) {
-        this.id = id;
+    public Pasajero(String nombre, String apellidos, String documentoID) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.documentoID = documentoID;
@@ -50,7 +49,7 @@ public class Pasajero {
     @Override
     public String toString() {
         return "Pasajero: \n" +
-                "nombre y apellidos'" + nombre + '\'' + apellidos + '\'' +
+                "nombre y apellidos'" + nombre + ' ' + apellidos + ' ' +
                 ", documentoID='" + documentoID + '\'' +
                 '\n';
     }

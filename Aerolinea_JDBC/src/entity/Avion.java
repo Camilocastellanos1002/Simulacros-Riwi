@@ -8,8 +8,7 @@ public class Avion {
     public Avion() {
     }
 
-    public Avion(int id, String modelo, int capacidad) {
-        this.id = id;
+    public Avion(String modelo, int capacidad) {
         this.modelo = modelo;
         this.capacidad = capacidad;
     }
@@ -40,10 +39,9 @@ public class Avion {
 
     @Override
     public String toString() {
-        return "Avion: \n" +
-                "id:" + id +
-                ", modelo:'" + modelo + '\'' +
-                ", capacidad:" + capacidad +
+        return "Avion id: " + id + "\n"+
+                "modelo: '" + modelo + '\'' +
+                ", capacidad: " + capacidad +
                 '\n';
     }
 }

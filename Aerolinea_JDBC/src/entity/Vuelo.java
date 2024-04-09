@@ -13,8 +13,7 @@ public class Vuelo {
     //constructores
     public Vuelo() {
     }
-    public Vuelo(int id, String destino, String fecha_salida, String hora_salida, int idAvion, Avion objAvion) {
-        this.id = id;
+    public Vuelo(String destino, String fecha_salida, String hora_salida, int idAvion, Avion objAvion) {
         this.destino = destino;
         this.fecha_salida = fecha_salida;
         this.hora_salida = hora_salida;
@@ -77,9 +76,8 @@ public class Vuelo {
                 "id: " + id +
                 ", destino: '" + destino + '\'' +
                 ", fecha_salida: '" + fecha_salida + '\'' +
-                ", hora_salida: '" + hora_salida + '\'' +
-                ", idAvion: " + idAvion +
-                ", objAvion: " + objAvion +
+                ", hora_salida: '" + hora_salida + '\n' +
+                "Avion: #" + objAvion +
                 '\n';
     }
 }
