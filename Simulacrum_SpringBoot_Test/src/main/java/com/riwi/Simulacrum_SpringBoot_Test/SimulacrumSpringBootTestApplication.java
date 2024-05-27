@@ -8,6 +8,8 @@ public class SimulacrumSpringBootTestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimulacrumSpringBootTestApplication.class, args);
+
+		
 	}
 
 }
