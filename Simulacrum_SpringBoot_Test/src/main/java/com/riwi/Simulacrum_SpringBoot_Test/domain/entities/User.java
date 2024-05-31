@@ -1,18 +1,25 @@
 package com.riwi.Simulacrum_SpringBoot_Test.domain.entities;
 
+import java.util.List;
+
 import com.riwi.Simulacrum_SpringBoot_Test.util.enums.Rol;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name = "users")
 @Data
@@ -39,4 +46,16 @@ public class User {
 
     @Enumerated(EnumType.STRING) /*Se especifica que es tipo enum con string como caracteristica */
     private Rol role;
+
+    /* Relacion con submision */
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
+    @ToString.Exclude /*excluir el toString */
+    @EqualsAndHashCode.Exclude
+    private List<Submission> submisions;
+
+    /*Relacion con course */
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Course> courses;
 }
