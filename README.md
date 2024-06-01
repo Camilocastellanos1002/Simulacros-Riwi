@@ -15,3 +15,7 @@
 
 ## * Flujo basico de una API Rest
 * ![Modelo de flujo Spring Boot Api Rest](https://github.com/Camilocastellanos1002/Simulacros-Riwi/assets/69378105/ded5aad1-3fc1-4126-86f9-d2ec252fd21b)
+
+## * Flujo Completo para una API
+![Flujo paso a paso](https://github.com/Camilocastellanos1002/Simulacros-Riwi/assets/69378105/e781169d-ead1-45b4-8204-c5d5c505c9e3)
+
