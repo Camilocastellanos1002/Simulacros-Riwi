@@ -45,4 +45,16 @@ public class Course {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Lesson> lessons;
+
+    /*Relacion con enrrollment */
+    @OneToMany(mappedBy = "course",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Enrollment> elEnrollments;
+
+    /*Relacion con Message */
+    @OneToMany(mappedBy = "course",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Message> messages;
 }

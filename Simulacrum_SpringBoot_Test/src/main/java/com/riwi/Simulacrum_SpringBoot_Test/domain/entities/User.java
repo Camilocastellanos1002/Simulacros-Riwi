@@ -58,4 +58,23 @@ public class User {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Course> courses;
+
+    /*Relacion con enrrollment */
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Enrollment> enrollments;
+
+    /*Relacion con message como Tx */
+    @OneToMany(mappedBy = "sender",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Message> sender_Messages;
+
+    /*Relacion con message como Rx */
+    @OneToMany(mappedBy = "receiver",fetch = FetchType.EAGER,cascade = CascadeType.ALL,orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Message> receiver_Messages;
+
 }

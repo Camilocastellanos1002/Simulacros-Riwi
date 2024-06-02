@@ -38,4 +38,9 @@ public class Submission {
     @JoinColumn(name = "user_id",referencedColumnName = "id_user") /*forma de linkear id del usuario */
     private User user;
 
+    /* Relacion con assignment */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "assignment_id",referencedColumnName = "id_assignment")
+    private Assignment assignment;
+
 }
