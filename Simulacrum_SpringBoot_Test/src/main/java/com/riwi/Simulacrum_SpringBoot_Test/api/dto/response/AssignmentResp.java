@@ -3,9 +3,6 @@ package com.riwi.Simulacrum_SpringBoot_Test.api.dto.response;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Lesson;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Submission;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,7 +22,13 @@ public class AssignmentResp {
 
     private LocalDate due_date;
 
-    private Lesson lesson;
+    /*Relacion con la leccion */
+    private LessonBasicResp lesson; /*Respondo con la info basica de la lesson */
 
-    private List<Submission> submissions;
+    /*Relacion con la entrega */
+    /*
+     *  no se implementa SubmissionBasicResp por que se genera bucle ya que contiene, asignment y asignment tiene lesson
+     * y/o por que no se borra lessonbasic?
+     */
+    private List<SubmissionAssingmentResp> submissions; /*Respondo con la info basica de la  entrega  */
 }

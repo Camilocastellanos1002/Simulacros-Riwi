@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubmissionResp {
+public class SubmissionAssingmentResp {
     
     private Long submission_id;
 
@@ -20,10 +20,4 @@ public class SubmissionResp {
     private LocalDate submission_date;
 
     private Double grade;
-
-    /*Relacion con el usuario */
-    private UserBasicResp user; /* respondo con la info basica de user, sin demas listas */
-
-    /*Relacion con la tarea */
-    private AssignmentBasicResp assignment; /* respondo con la info basica de la tarea y trae la info de la leccion */
 }

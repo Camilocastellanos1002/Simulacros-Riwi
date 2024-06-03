@@ -21,5 +21,6 @@ public class SubmissionBasicResp {
 
     private Double grade;
 
-    /* Por que debe tener un assignment basic resp ?  */
+    /*Relacion con la tarea */
+    private AssignmentBasicResp assignmentBasicResp; /* informacion basica de la tarea, que tiene info basica de la leccion */
 }

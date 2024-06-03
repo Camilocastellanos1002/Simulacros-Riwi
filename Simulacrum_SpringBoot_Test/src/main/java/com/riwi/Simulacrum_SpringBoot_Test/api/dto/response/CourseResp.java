@@ -2,12 +2,6 @@ package com.riwi.Simulacrum_SpringBoot_Test.api.dto.response;
 
 import java.util.List;
 
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Enrollment;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Lesson;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Message;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.User;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,11 +19,16 @@ public class CourseResp {
 
     private String description;
 
-    private User user;
+    /*Relacion con user */
+    private UserBasicResp user; /*respondo con la info basica del usuario */
     
-    private List<Lesson> lessons;
+    /*Relacion con la leccion */
+    private List<LessonBasicResp> lessons; /*respondo con la info basica de la leccion */
 
-    private List<Enrollment> elEnrollments;
+    /*Relacion con la inscripcion */
+    private List<EnrollmentBasicResp> elEnrollments; /*Respondo con la informacion basica de la inscripcion */ 
+    //??
     
-    private List<Message> messages;
+    /*Relacion con la table mensaje */
+    private List<MessageCourseResp> messages; /* respondo con la info basica del mensaje, que contiene la info basica del transmisor y el receptor */
 }

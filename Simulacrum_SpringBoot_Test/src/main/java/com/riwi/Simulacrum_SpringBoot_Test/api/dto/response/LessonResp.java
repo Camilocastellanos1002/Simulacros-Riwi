@@ -1,10 +1,6 @@
 package com.riwi.Simulacrum_SpringBoot_Test.api.dto.response;
 
 import java.util.List;
-
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Assignment;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Course;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,8 +18,12 @@ public class LessonResp {
 
     private String context;
 
-    private Course course;
+    /*Relacion con curso */
+    private CourseBasicResp course; /*Respondo con la info basica del curso */
 
-    private List <Assignment> assignments;
+    /* Relacion con la tarea 
+     * no se usa AssignmentBasicResp por que contiene a lessonbasic y genera bucle
+    */
+    private List <AssignmentLessonResp> assignments; /*respondo con la informacion basica de la tarea y info basica de leccion  */ //?
 
 }

@@ -21,5 +21,6 @@ public class AssignmentBasicResp {
 
     private LocalDate due_date;
 
-    /* por que debe tener lesson basic resp ? */
+    /*relacion con la leccion */
+    private LessonBasicResp lesson; /* informacion basica de la leccion*/
 }

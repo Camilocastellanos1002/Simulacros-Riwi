@@ -1,10 +1,6 @@
 package com.riwi.Simulacrum_SpringBoot_Test.api.dto.response;
 
 import java.time.LocalDate;
-
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Course;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +18,11 @@ public class MessageResp {
 
     private LocalDate send_date;
 
-    private Course course;
+    /*Relacion con usuario */
+        private UserBasicResp user_sender; /*  respondo con la info basica de usario como transmisor*/
 
-    private User user_sender;
+        private UserBasicResp user_receiver; /* respondo con la info basica de usuario como receptor */
 
-    private User user_receiver;
+    /*Relacion con curso */
+    private CourseBasicResp course; //??
 }

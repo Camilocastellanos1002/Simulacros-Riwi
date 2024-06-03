@@ -2,9 +2,6 @@ package com.riwi.Simulacrum_SpringBoot_Test.api.dto.response;
 
 import java.time.LocalDate;
 
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Course;
-import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.User;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +17,7 @@ public class EnrollmentResp {
 
     private LocalDate enrollment_date;
 
-    private User user;
+    private UserBasicResp user; /*Solo deseo la informacion basica del usuario */
 
-    private Course course;
+    private CourseBasicResp course; /*Solo deseo la info basica del curso */
 }

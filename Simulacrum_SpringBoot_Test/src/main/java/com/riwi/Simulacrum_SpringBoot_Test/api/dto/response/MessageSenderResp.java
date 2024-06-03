@@ -19,6 +19,6 @@ public class MessageSenderResp {
 
     private LocalDate send_date;
 
-    private UserBasicResp user_sender;
+    private UserBasicResp user_sender; /*Solo deseo la informacion basica del usuario transmisior */
 
 }

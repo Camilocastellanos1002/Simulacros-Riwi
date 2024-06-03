@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MessageReceiverResp {
+public class AssignmentLessonResp {
     
-    private Long message_id;
+    private Long assignment_id;
 
-    private String message_context;
+    private String assignment_title;
 
-    private LocalDate send_date;
+    private String description;
 
-    private UserBasicResp user_receiver; /*Solo deseo la informacion basica del usuario receptor */
+    private LocalDate due_date;
 }
