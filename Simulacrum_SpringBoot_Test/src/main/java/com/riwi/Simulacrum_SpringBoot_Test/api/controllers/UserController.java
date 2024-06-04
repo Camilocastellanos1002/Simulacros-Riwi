@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.riwi.Simulacrum_SpringBoot_Test.api.dto.request.LessonReq;
-import com.riwi.Simulacrum_SpringBoot_Test.api.dto.response.LessonResp;
-import com.riwi.Simulacrum_SpringBoot_Test.infrastructure.abstract_services.ILessonService;
+import com.riwi.Simulacrum_SpringBoot_Test.api.dto.request.UserReq;
+import com.riwi.Simulacrum_SpringBoot_Test.api.dto.response.UserResp;
+import com.riwi.Simulacrum_SpringBoot_Test.infrastructure.abstract_services.IUserService;
 import com.riwi.Simulacrum_SpringBoot_Test.util.enums.SortType;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,22 +30,20 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/*http://localhost:8080/api/v1/swagger-ui/index.html/ */
 @RestController
-@RequestMapping(path = "/lessons")
+@RequestMapping(path = "/users")
 @Data
 @AllArgsConstructor
-public class LessonController {
-    
-    /*Inyeccion de dependencias */
+public class UserController {
+     /*Inyeccion de dependencias */
         @Autowired
-        private final ILessonService lessonService;
+        private final IUserService userService;
 
 
     /*Peticiones HTTP */
         @GetMapping
-        @Operation(summary = "Obtiene las lecciones de forma paginada y organizada por el titulo")
-        public ResponseEntity<Page<LessonResp>>getAll(
+        @Operation(summary = "Obtiene los usuarios de forma paginada y organizada por el titulo")
+        public ResponseEntity<Page<UserResp>>getAll(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int size,
             @RequestHeader(required = false)SortType sortType
@@ -53,44 +51,44 @@ public class LessonController {
             if (Objects.isNull(sortType)) {
                 sortType = SortType.NONE;
             }
-            return ResponseEntity.ok(this.lessonService.getAll(page-1, size, sortType));
+            return ResponseEntity.ok(this.userService.getAll(page-1, size, sortType));
         }
 
         @PostMapping
-        @Operation(summary = "Crea la leccion")
+        @Operation(summary = "Crea el usuario")
         @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
-        public ResponseEntity<LessonResp> create(
-                @Validated LessonReq request) {
-            return ResponseEntity.ok(this.lessonService.create(request));
+        public ResponseEntity<UserResp> create(
+                @Validated UserReq request) {
+            return ResponseEntity.ok(this.userService.create(request));
         }
 
         @PutMapping(path = "/{id}")
-        @Operation(summary = "Actualiza la leccion por id")
+        @Operation(summary = "Actualiza el usuario por id")
         @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
-        public ResponseEntity<LessonResp> update(
-                @PathVariable Long id, @Validated @RequestBody LessonReq request) {
-            return ResponseEntity.ok(this.lessonService.update(request, id));
+        public ResponseEntity<UserResp> update(
+                @PathVariable Long id, @Validated @RequestBody UserReq request) {
+            return ResponseEntity.ok(this.userService.update(request, id));
         }
 
         @DeleteMapping(path = "/{id}")
-        @Operation(summary = "Elimina la leccion por id")
+        @Operation(summary = "Elimina el usuario por id")
         @ApiResponse(
             responseCode = "400", description = "Cuando el id no es valido", 
             content = { @Content(mediaType = "application/json", 
                 schema = @Schema(implementation = ErrorResponse.class)) })
         public ResponseEntity<Void> delete(@PathVariable Long id) {
-            this.lessonService.delete(id);
+            this.userService.delete(id);
 
             return ResponseEntity.noContent().build();
         }
 
         @GetMapping(path = "/{id}")
-        @Operation(summary = "Obtiene un leccion por id")
+        @Operation(summary = "Obtiene el usuario por id")
         @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
-        public ResponseEntity<LessonResp> getById(@PathVariable Long id) {
-            return ResponseEntity.ok(this.lessonService.getById(id));
+        public ResponseEntity<UserResp> getById(@PathVariable Long id) {
+            return ResponseEntity.ok(this.userService.getById(id));
         }
 }

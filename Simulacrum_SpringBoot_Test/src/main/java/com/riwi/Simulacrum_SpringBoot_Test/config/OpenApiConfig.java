@@ -1,4 +1,4 @@
-package com.riwi.Simulacrum_SpringBoot_Test.api.config;
+package com.riwi.Simulacrum_SpringBoot_Test.config;
 
 import org.springframework.context.annotation.Configuration;
 

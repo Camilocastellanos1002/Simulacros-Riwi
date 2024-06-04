@@ -31,17 +31,17 @@ public class Message {
 
     /*Relacion con course */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id",referencedColumnName = "id_course")
+    @JoinColumn(name = "course_id",referencedColumnName = "course_id")
     private Course course;
 
     /*Relacion con user como Tx */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_id",referencedColumnName = "id_user")
+    @JoinColumn(name = "sender",referencedColumnName = "user_id")
     private User sender;
 
     /*Relacion con user como Rx */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "receiver_id",referencedColumnName = "id_user")
+    @JoinColumn(name = "receiver",referencedColumnName = "user_id")
     private User receiver;
 
 }

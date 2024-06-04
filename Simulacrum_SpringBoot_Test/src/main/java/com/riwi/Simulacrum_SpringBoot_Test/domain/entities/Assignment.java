@@ -39,7 +39,7 @@ public class Assignment {
 
     /*Relacion con lessons */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "lesson_id", referencedColumnName = "id_lesson")
+    @JoinColumn(name = "lesson_id", referencedColumnName = "lesson_id")
     private Lesson lesson;
 
     /*Relacion con submission */

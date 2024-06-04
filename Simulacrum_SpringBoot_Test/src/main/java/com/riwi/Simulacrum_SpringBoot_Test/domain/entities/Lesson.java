@@ -36,7 +36,7 @@ public class Lesson {
 
     /*Relacion con course */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id",referencedColumnName = "id_course")
+    @JoinColumn(name = "course_id",referencedColumnName = "course_id")
     private Course course;
 
     /*Relacion con Assignment */

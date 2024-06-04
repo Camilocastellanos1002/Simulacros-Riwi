@@ -2,6 +2,7 @@ package com.riwi.Simulacrum_SpringBoot_Test.infrastructure.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
@@ -27,6 +28,7 @@ import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.Submission;
 import com.riwi.Simulacrum_SpringBoot_Test.domain.entities.User;
 import com.riwi.Simulacrum_SpringBoot_Test.domain.repositories.UserRepository;
 import com.riwi.Simulacrum_SpringBoot_Test.infrastructure.abstract_services.IUserService;
+import com.riwi.Simulacrum_SpringBoot_Test.infrastructure.helpers.EmailHelper;
 import com.riwi.Simulacrum_SpringBoot_Test.util.enums.SortType;
 import com.riwi.Simulacrum_SpringBoot_Test.util.exceptions.BadRequestException;
 import com.riwi.Simulacrum_SpringBoot_Test.util.messages.ErrorMessage;
@@ -40,10 +42,15 @@ import lombok.Data;
 public class UserService implements IUserService {
 
     /* dependencias */
-      @Autowired
+        @Autowired
         private final UserRepository userRepository;
 
+        /* inyeccion del helper*/
+        @Autowired
+        private final EmailHelper emailHelper;
+
     /*metodos CRUD */
+
         @Override
         public UserResp create(UserReq request) {
             User user = this.UserReqToEntity(request); //creacion de la entidad usuario desdel el request
@@ -53,6 +60,11 @@ public class UserService implements IUserService {
             user.setSubmisions(new ArrayList<>()); //lista vacia de entregas
             user.setSender_Messages(new ArrayList<>()); //lista vacia de mensajes como transmisor
             user.setReceiver_Messages(new ArrayList<>()); //lista vacia de mensajes como receptor
+
+            /* valida si se creo el usuario correctamente, por lo que se envia un mensaje */
+            if (Objects.nonNull(user.getEmail())) {
+                this.emailHelper.sendMail(user.getEmail(), user.getUser_name(), user.getFull_name(),"fecha yyyy-MM-dd XXXXXXXXXXXXXX");
+            }
 
             return this.userEntityToResponse(this.userRepository.save(user)); //se regresa un response a partir de la entidad usuario y se guarda en el repositorio
         }

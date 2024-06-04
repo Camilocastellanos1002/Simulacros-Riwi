@@ -19,9 +19,8 @@ import com.riwi.Simulacrum_SpringBoot_Test.api.dto.errors.ErrorsResponse;
 // Status por defecto
 @ResponseStatus(code = HttpStatus.BAD_REQUEST) // Código 400 que advierte que no se envian los parametros como se piden
 public class BadRequestController {
-     @ExceptionHandler(MethodArgumentNotValidException.class) // Anotación que activa la libreria de validación
-    
-     public BaseErrorResponse handleBadRequest(MethodArgumentNotValidException exception){ //recibe el mismo argumento
+    @ExceptionHandler(MethodArgumentNotValidException.class) // Anotación que activa la libreria de validación
+    public BaseErrorResponse handleBadRequest(MethodArgumentNotValidException exception){ //recibe el mismo argumento
         List<Map<String,String>> errors = new ArrayList<>(); // Genera una lista de maps
 
         /*

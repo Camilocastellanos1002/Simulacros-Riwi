@@ -29,11 +29,11 @@ public class Enrollment {
 
     /*Relacion con user */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id",referencedColumnName = "id_user")
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
     private User user;
 
     /*Relacion con course */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id",referencedColumnName = "id_course")
+    @JoinColumn(name = "course_id",referencedColumnName = "course_id")
     private Course course;
 }
