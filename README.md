@@ -70,6 +70,18 @@
 
 ### 3.4 crear los response de las relaciones entre entidades
 
+## 4. Creacion de repositorios
+
+![4 paso](https://github.com/Camilocastellanos1002/Simulacros-Riwi/assets/69378105/45168626-fd11-4879-97eb-483ad85d24a0)
+
+## 5. Creacion de servicios E interfaces
+
+![image](https://github.com/Camilocastellanos1002/Simulacros-Riwi/assets/69378105/5f97e2ee-d02a-44cf-a385-28aa8bcdd6f5)
+
+## 6. Creacion de controladores 
+
+![image](https://github.com/Camilocastellanos1002/Simulacros-Riwi/assets/69378105/cec60007-8651-451f-b539-30297365ffda)
+
 
 
 
